@@ -1,0 +1,652 @@
+/* ========================================
+   MANGO WEBSITE CUSTOM STYLES
+======================================== */
+
+.section-off-on-buttons span,
+.card_list_append_button,
+.card_list_delete_button {
+    display: none;
+}
+
+.lp_image_editable {
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.lp_image_editable img {
+    transition: 0.4s;
+}
+
+.lp_image_editable:hover img {
+    transform: scale(1.05);
+}
+
+/* ========================================
+   ROOT VARIABLES
+======================================== */
+
+:root {
+    --amber: #F59E0B;
+    --golden: #D97706;
+    --deep-amber: #92400E;
+    --mango-yellow: #FDE68A;
+    --mango-orange: #FB923C;
+    --leaf-green: #16A34A;
+    --leaf-light: #BBF7D0;
+    --cream: #FFFBEB;
+    --white: #FFFFFF;
+    --charcoal: #1C1917;
+    --warm-gray: #78716C;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    overflow-x: hidden;
+}
+
+/* ========================================
+   TYPOGRAPHY
+======================================== */
+
+.font-display {
+    font-family: 'Playfair Display', serif;
+}
+
+.font-editorial {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* ========================================
+   ANIMATIONS
+======================================== */
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(-2deg);
+    }
+    50% {
+        transform: translateY(-18px) rotate(2deg);
+    }
+}
+
+@keyframes blob {
+    0%, 100% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    50% {
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+@keyframes pulse-ring {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes spin-slow {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.float {
+    animation: float 5s ease-in-out infinite;
+}
+
+.blob {
+    animation: blob 8s ease-in-out infinite;
+}
+
+.fade-up {
+    animation: fadeUp 0.8s ease forwards;
+}
+
+.spin-slow {
+    animation: spin-slow 20s linear infinite;
+}
+
+/* ========================================
+   SCROLL REVEAL
+======================================== */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ========================================
+   GLASS MORPHISM
+======================================== */
+
+.glass {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.glass-dark {
+    background: rgba(28, 25, 23, 0.55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* ========================================
+   BUTTONS
+======================================== */
+
+.btn-primary {
+    background: linear-gradient(135deg, #D97706, #F59E0B, #FB923C);
+    background-size: 200%;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border-radius: 100px;
+    padding: 14px 36px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(217, 119, 6, 0.4);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background-position: right center;
+    transform: translateY(-2px);
+    box-shadow: 0 16px 48px rgba(217, 119, 6, 0.55);
+}
+
+.btn-whatsapp {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    font-weight: 600;
+    border-radius: 100px;
+    padding: 14px 36px;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 32px rgba(37, 211, 102, 0.35);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-whatsapp:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 48px rgba(37, 211, 102, 0.5);
+}
+
+/* ========================================
+   HERO SECTION
+======================================== */
+
+.hero-bg {
+    background: radial-gradient(ellipse at 70% 50%, #FDE68A 0%, #FCD34D 30%, #F59E0B 60%, #D97706 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-blob-1 {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(251, 146, 60, 0.4) 0%, transparent 70%);
+    top: -100px;
+    right: -100px;
+    animation: blob 10s ease-in-out infinite;
+}
+
+.hero-blob-2 {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(22, 163, 74, 0.2) 0%, transparent 70%);
+    bottom: -50px;
+    left: -50px;
+    animation: blob 12s ease-in-out infinite reverse;
+}
+
+/* ========================================
+   MARQUEE
+======================================== */
+
+.marquee-track {
+    animation: marquee 20s linear infinite;
+    white-space: nowrap;
+}
+
+/* ========================================
+   VARIETY CARDS
+======================================== */
+
+.variety-card {
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    position: relative;
+}
+
+.variety-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 24px 64px rgba(217, 119, 6, 0.2);
+}
+
+.variety-card .badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: linear-gradient(135deg, #D97706, #F59E0B);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 100px;
+    letter-spacing: 0.05em;
+}
+
+.sweetness-bar {
+    height: 6px;
+    border-radius: 100px;
+    background: linear-gradient(90deg, #FCD34D, #F59E0B, #D97706);
+    transition: width 1s ease;
+}
+
+/* ========================================
+   REVIEWS
+======================================== */
+
+.review-card {
+    background: white;
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
+}
+
+/* ========================================
+   GALLERY
+======================================== */
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 20px;
+    transition: all 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-item img {
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ========================================
+   FAQ
+======================================== */
+
+.faq-item {
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    cursor: pointer;
+    background: white;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.faq-question:hover {
+    background: #FFFBEB;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+    background: #FFFBEB;
+}
+
+.faq-answer.open {
+    max-height: 200px;
+    padding: 0 24px 20px;
+}
+
+.faq-icon {
+    transition: transform 0.3s ease;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.faq-item.open .faq-icon {
+    transform: rotate(45deg);
+}
+
+/* ========================================
+   FLOATING BUTTONS
+======================================== */
+
+.float-whatsapp {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 999;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 32px rgba(37, 211, 102, 0.5);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+}
+
+.float-whatsapp:hover {
+    transform: scale(1.1);
+}
+
+.float-whatsapp::before {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(37, 211, 102, 0.4);
+    animation: pulse-ring 2s ease-out infinite;
+}
+
+/* ========================================
+   OFFER BANNER
+======================================== */
+
+.offer-banner {
+    background: linear-gradient(135deg, #16A34A, #15803D, #14532D);
+    position: relative;
+    overflow: hidden;
+}
+
+.offer-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ========================================
+   SHIMMER TEXT
+======================================== */
+
+.shimmer-text {
+    background: linear-gradient(90deg, #D97706, #F59E0B, #FCD34D, #F59E0B, #D97706);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s linear infinite;
+}
+
+/* ========================================
+   NAVIGATION
+======================================== */
+
+.nav-blur {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(255, 251, 235, 0.85);
+    border-bottom: 1px solid rgba(245, 158, 11, 0.15);
+}
+
+/* ========================================
+   SECTION DIVIDER
+======================================== */
+
+.wave-divider {
+    display: block;
+    width: 100%;
+}
+
+/* ========================================
+   STARS & TRUST BADGES
+======================================== */
+
+.stars {
+    color: #F59E0B;
+    letter-spacing: 2px;
+}
+
+.trust-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    padding: 8px 18px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--charcoal);
+}
+
+/* ========================================
+   WHY US SECTION
+======================================== */
+
+.why-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #FDE68A, #FCD34D);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin-bottom: 16px;
+    box-shadow: 0 8px 24px rgba(245, 158, 11, 0.25);
+    transition: transform 0.3s ease;
+}
+
+.why-card:hover .why-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* ========================================
+   SECTION LABEL
+======================================== */
+
+.section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #D97706;
+    padding: 6px 16px;
+    border-radius: 100px;
+    background: rgba(217, 119, 6, 0.1);
+    margin-bottom: 16px;
+}
+
+/* ========================================
+   HIGHLIGHTS BACKGROUND
+======================================== */
+
+.highlights-bg {
+    background: linear-gradient(160deg, #1C1917 0%, #292524 50%, #1C1917 100%);
+}
+
+/* ========================================
+   MANGO PICKER STYLES
+======================================== */
+
+.mango-picker-card {
+    border: 1px solid #eee;
+    border-radius: 24px;
+    padding: 10px;
+    background: #fff;
+    transition: .25s;
+}
+
+.mango-picker-card:hover {
+    border-color: #f59e0b;
+    transform: translateY(-2px);
+}
+
+.active-card {
+    border: 2px solid #f59e0b;
+    background: #fffaf0;
+}
+
+.qty-stepper {
+    display: flex;
+    align-items: center;
+    border: 1px solid #e7e5e4;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.qty-btn {
+    width: 34px;
+    height: 34px;
+    background: #f5f5f4;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.qty-val {
+    width: 50px;
+    height: 34px;
+    border: none;
+    text-align: center;
+    outline: none;
+}
+
+.check-ring {
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    border: 2px solid #d6d3d1;
+    flex-shrink: 0;
+}
+
+.active-card .check-ring {
+    background: #f59e0b;
+    border-color: #f59e0b;
+}
+
+/* ========================================
+   RESPONSIVE STYLES
+======================================== */
+
+@media (max-width: 640px) {
+    .hero-title {
+        font-size: 2.4rem !important;
+    }
+
+    .hero-sub {
+        font-size: 1rem !important;
+    }
+}

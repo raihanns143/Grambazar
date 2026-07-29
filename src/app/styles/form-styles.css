@@ -1,0 +1,256 @@
+/* ========================================
+   FORM & ORDER COMPONENTS STYLES
+======================================== */
+
+/* ── MANGO PICKER CARD ── */
+.mango-picker-card {
+    border: 2px solid #E7E5E4;
+    border-radius: 16px;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    background: #FAFAF9;
+    position: relative;
+    user-select: none;
+}
+
+.mango-picker-card:hover {
+    border-color: #F59E0B;
+    background: #FFFBEB;
+    transform: translateY(-2px);
+}
+
+.mango-picker-card.selected {
+    border-color: #D97706;
+    background: #FEF3C7;
+    box-shadow: 0 0 0 4px rgba(217, 119, 6, 0.12);
+}
+
+.mango-picker-card.active-card {
+    border-color: #F59E0B;
+    background: #FFFBEB;
+}
+
+.mango-picker-card .check-ring {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid #D6D3D1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.mango-picker-card.selected .check-ring {
+    border-color: #D97706;
+    background: #D97706;
+}
+
+.mango-picker-card.selected .check-ring::after {
+    content: '✓';
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+/* ── QUANTITY STEPPER ── */
+.qty-stepper {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border: 2px solid #E7E5E4;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+}
+
+.qty-stepper:focus-within {
+    border-color: #F59E0B;
+}
+
+.qty-btn {
+    width: 36px;
+    height: 36px;
+    background: #F5F5F4;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #44403C;
+    transition: background 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.qty-btn:hover {
+    background: #FDE68A;
+    color: #92400E;
+}
+
+.qty-val {
+    width: 48px;
+    height: 36px;
+    text-align: center;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    background: white;
+    color: #1C1917;
+    outline: none;
+    -moz-appearance: textfield;
+}
+
+.qty-val::-webkit-outer-spin-button,
+.qty-val::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+/* ── FORM INPUT ── */
+.form-input {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #E7E5E4;
+    border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background: #FAFAF9;
+    outline: none;
+}
+
+.form-input:focus {
+    border-color: #F59E0B;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.1);
+}
+
+.form-input.border-red-500 {
+    border-color: #ef4444;
+    background: #fef2f2;
+}
+
+.form-input.border-red-500:focus {
+    border-color: #dc2626;
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
+}
+
+/* ── ORDER SUMMARY ROW ── */
+.order-summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed #E7E5E4;
+    font-size: 14px;
+}
+
+.order-summary-row:last-child {
+    border-bottom: none;
+}
+
+/* ── ROW ANIMATION ── */
+@keyframes rowIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.row-anim {
+    animation: rowIn 0.25s ease forwards;
+}
+
+/* ── SHAKE ANIMATION ── */
+@keyframes shake {
+    0%,
+    100% {
+        transform: translateX(0)
+    }
+
+    20% {
+        transform: translateX(-6px)
+    }
+
+    40% {
+        transform: translateX(6px)
+    }
+
+    60% {
+        transform: translateX(-4px)
+    }
+
+    80% {
+        transform: translateX(4px)
+    }
+}
+
+.shake {
+    animation: shake 0.4s ease;
+}
+
+/* ── STICKY MOBILE ORDER ── */
+.sticky-order {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 998;
+    padding: 5px 5px;
+    backdrop-filter: blur(12px);
+    border-top: 1px solid #E7E5E4;
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .sticky-order {
+        display: block;
+    }
+}
+
+/* ── PACKAGE OPTION ── */
+.package-option {
+    border: 1px solid #E7E5E4;
+    border-radius: 10px;
+    padding: 12px;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.package-option:hover {
+    border-color: #F59E0B;
+    background: #FFFBEB;
+}
+
+.package-option.selected {
+    border-color: #D97706;
+    background: #FEF3C7;
+    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.15);
+}
+
+/* ── QTY ROW ── */
+.qty-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 8px;
+    margin-top: 0;
+    border: 1px solid #E7E5E4;
+    border-radius: 12px;
+    background: #FAFAF9;
+}
+
+.qty-row.hidden {
+    display: none;
+}
